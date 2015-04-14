@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Location *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

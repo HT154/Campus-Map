@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Location.h"
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-
-@property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

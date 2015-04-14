@@ -20,13 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     splitViewController.delegate = self;
-
-    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    
     return YES;
 }
 
@@ -63,6 +59,28 @@
     } else {
         return NO;
     }
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController showDetailViewController:(UIViewController *)detailVC sender:(id)sender
+{
+    UITabBarController *masterVC = splitViewController.viewControllers[0];
+    
+    if (splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact)
+        [masterVC.selectedViewController showViewController:detailVC sender:sender];
+    else
+        [splitViewController setViewControllers:@[masterVC, detailVC]];
+    
+    return YES;
+}
+
+- (UIViewController*)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController
+{
+    UITabBarController *masterVC = splitViewController.viewControllers[0];
+    
+    if ([(UINavigationController*)masterVC.selectedViewController viewControllers].count > 1)
+        return [(UINavigationController*)masterVC.selectedViewController popViewControllerAnimated:NO];
+    else
+        return nil; // Use the default implementation
 }
 
 #pragma mark - Core Data stack
@@ -107,6 +125,9 @@
         error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
         // Replace this with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }

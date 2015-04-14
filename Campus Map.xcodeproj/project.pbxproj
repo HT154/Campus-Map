@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */; };
 		03CF63561ADC771F0067E143 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63551ADC771F0067E143 /* main.m */; };
 		03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63581ADC771F0067E143 /* AppDelegate.m */; };
 		03CF635C1ADC771F0067E143 /* Campus_Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */; };
@@ -16,6 +17,8 @@
 		03CF63671ADC77200067E143 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63661ADC77200067E143 /* Images.xcassets */; };
 		03CF636A1ADC77200067E143 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63681ADC77200067E143 /* LaunchScreen.xib */; };
 		03CF63761ADC77200067E143 /* Campus_MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63751ADC77200067E143 /* Campus_MapTests.m */; };
+		03CF63811ADC821B0067E143 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63801ADC821B0067E143 /* Location.m */; };
+		03F69D7B1ADCBA2C0040FF54 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F69D7A1ADCBA2C0040FF54 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		03CF63501ADC771F0067E143 /* Campus Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Campus Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF63541ADC771F0067E143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF63551ADC771F0067E143 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,6 +50,9 @@
 		03CF636F1ADC77200067E143 /* Campus MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Campus MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF63741ADC77200067E143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF63751ADC77200067E143 /* Campus_MapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Campus_MapTests.m; sourceTree = "<group>"; };
+		03CF637F1ADC821B0067E143 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		03CF63801ADC821B0067E143 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		03F69D7A1ADCBA2C0040FF54 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F69D7B1ADCBA2C0040FF54 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +77,7 @@
 		03CF63471ADC771F0067E143 = {
 			isa = PBXGroup;
 			children = (
+				03F69D7A1ADCBA2C0040FF54 /* MapKit.framework */,
 				03CF63521ADC771F0067E143 /* Campus Map */,
 				03CF63721ADC77200067E143 /* Campus MapTests */,
 				03CF63511ADC771F0067E143 /* Products */,
@@ -90,8 +100,12 @@
 				03CF63581ADC771F0067E143 /* AppDelegate.m */,
 				03CF635D1ADC771F0067E143 /* MasterViewController.h */,
 				03CF635E1ADC771F0067E143 /* MasterViewController.m */,
+				03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */,
+				03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */,
 				03CF63601ADC77200067E143 /* DetailViewController.h */,
 				03CF63611ADC77200067E143 /* DetailViewController.m */,
+				03CF637F1ADC821B0067E143 /* Location.h */,
+				03CF63801ADC821B0067E143 /* Location.m */,
 				03CF63631ADC77200067E143 /* Main.storyboard */,
 				03CF63661ADC77200067E143 /* Images.xcassets */,
 				03CF63681ADC77200067E143 /* LaunchScreen.xib */,
@@ -176,6 +190,12 @@
 				TargetAttributes = {
 					03CF634F1ADC771F0067E143 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 49732HS6WQ;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					03CF636E1ADC77200067E143 = {
 						CreatedOnToolsVersion = 6.3;
@@ -230,7 +250,9 @@
 				03CF63621ADC77200067E143 /* DetailViewController.m in Sources */,
 				03CF635F1ADC771F0067E143 /* MasterViewController.m in Sources */,
 				03CF635C1ADC771F0067E143 /* Campus_Map.xcdatamodeld in Sources */,
+				03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */,
 				03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */,
+				03CF63811ADC821B0067E143 /* Location.m in Sources */,
 				03CF63561ADC771F0067E143 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +381,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Campus Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +393,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Campus Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,6 +454,7 @@
 				03CF637B1ADC77200067E143 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03CF637C1ADC77200067E143 /* Build configuration list for PBXNativeTarget "Campus MapTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +463,7 @@
 				03CF637E1ADC77200067E143 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
