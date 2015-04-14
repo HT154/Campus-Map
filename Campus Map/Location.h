@@ -16,9 +16,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * abbr;
-@property (nonatomic) float lat;
-@property (nonatomic) float lng;
+@property (nonatomic) NSNumber *lat;
+@property (nonatomic) NSNumber *lng;
 @property (nonatomic, retain) NSString * icon;
-@property (nonatomic) BOOL favorite;
+@property (nonatomic) NSNumber *favorite;
 
 @end

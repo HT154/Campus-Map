@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030636281ADD792B0021ED70 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030636271ADD792B0021ED70 /* FavoritesViewController.m */; };
 		03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */; };
 		03CF63561ADC771F0067E143 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63551ADC771F0067E143 /* main.m */; };
 		03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63581ADC771F0067E143 /* AppDelegate.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030636261ADD792B0021ED70 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		030636271ADD792B0021ED70 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		03CF63501ADC771F0067E143 /* Campus Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Campus Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030636291ADD798B0021ED70 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */,
+				03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */,
+				03CF635D1ADC771F0067E143 /* MasterViewController.h */,
+				03CF635E1ADC771F0067E143 /* MasterViewController.m */,
+				030636261ADD792B0021ED70 /* FavoritesViewController.h */,
+				030636271ADD792B0021ED70 /* FavoritesViewController.m */,
+				03CF63601ADC77200067E143 /* DetailViewController.h */,
+				03CF63611ADC77200067E143 /* DetailViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		03CF63471ADC771F0067E143 = {
 			isa = PBXGroup;
 			children = (
@@ -98,12 +116,7 @@
 			children = (
 				03CF63571ADC771F0067E143 /* AppDelegate.h */,
 				03CF63581ADC771F0067E143 /* AppDelegate.m */,
-				03CF635D1ADC771F0067E143 /* MasterViewController.h */,
-				03CF635E1ADC771F0067E143 /* MasterViewController.m */,
-				03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */,
-				03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */,
-				03CF63601ADC77200067E143 /* DetailViewController.h */,
-				03CF63611ADC77200067E143 /* DetailViewController.m */,
+				030636291ADD798B0021ED70 /* View Controllers */,
 				03CF637F1ADC821B0067E143 /* Location.h */,
 				03CF63801ADC821B0067E143 /* Location.m */,
 				03CF63631ADC77200067E143 /* Main.storyboard */,
@@ -253,6 +266,7 @@
 				03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */,
 				03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */,
 				03CF63811ADC821B0067E143 /* Location.m in Sources */,
+				030636281ADD792B0021ED70 /* FavoritesViewController.m in Sources */,
 				03CF63561ADC771F0067E143 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

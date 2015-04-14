@@ -94,7 +94,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +152,6 @@
         <!--Master-->
         <scene sceneID="cgt-4R-gBM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z1N-Lw-7Dk" sceneMemberID="firstResponder"/>
                 <navigationController title="Master" id="rg3-gU-eWr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Categories" image="categories" id="dwy-kU-TGu"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kAN-aG-No8">
@@ -162,13 +161,13 @@
                         <segue destination="G8z-sg-52T" kind="relationship" relationship="rootViewController" id="0Dr-5j-k1N"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z1N-Lw-7Dk" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="552" y="-1466"/>
         </scene>
         <!--Master-->
         <scene sceneID="gQb-JF-nbJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6b4-Ms-3hz" sceneMemberID="firstResponder"/>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="2a5-R2-wv6" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Kw7-B3-MyR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -205,14 +204,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="JKQ-s5-x7m"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6b4-Ms-3hz" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2083" y="-1466"/>
         </scene>
         <!--Master-->
         <scene sceneID="2ag-vb-Ugi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubn-Ee-cKR" sceneMemberID="firstResponder"/>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="G8z-sg-52T" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="G8z-sg-52T" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aFw-eC-fLC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -248,6 +247,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="N8q-qD-eKK"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubn-Ee-cKR" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1381" y="-1466"/>
         </scene>
