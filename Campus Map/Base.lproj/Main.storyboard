@@ -128,7 +128,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +168,7 @@
         <!--Master-->
         <scene sceneID="gQb-JF-nbJ">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="2a5-R2-wv6" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="2a5-R2-wv6" customClass="LocationsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Kw7-B3-MyR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,7 +192,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" id="36X-0p-GF6"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="36X-0p-GF6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -202,7 +202,7 @@
                             <outlet property="delegate" destination="2a5-R2-wv6" id="myZ-Q6-NIv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="JKQ-s5-x7m"/>
+                    <navigationItem key="navigationItem" title="Locations" id="JKQ-s5-x7m"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6b4-Ms-3hz" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +235,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="2a5-R2-wv6" kind="show" id="7pj-og-m25"/>
+                                    <segue destination="2a5-R2-wv6" kind="show" identifier="showLocations" id="7pj-og-m25"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -245,7 +245,7 @@
                             <outlet property="delegate" destination="G8z-sg-52T" id="Hat-dg-gA8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="N8q-qD-eKK"/>
+                    <navigationItem key="navigationItem" title="Categories" id="N8q-qD-eKK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubn-Ee-cKR" sceneMemberID="firstResponder"/>
             </objects>

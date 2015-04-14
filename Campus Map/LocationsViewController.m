@@ -1,21 +1,19 @@
 //
-//  CategoriesViewController.m
+//  LocationsViewControllerTableViewController.m
 //  Campus Map
 //
-//  Created by Joshua Basch on 4/13/15.
+//  Created by Joshua Basch on 4/14/15.
 //  Copyright (c) 2015 HT154. All rights reserved.
 //
 
-#import "CategoriesViewController.h"
 #import "LocationsViewController.h"
+#import "DetailViewController.h"
 
-@interface CategoriesViewController ()
-
-@property (strong) NSArray *categories;
+@interface LocationsViewController ()
 
 @end
 
-@implementation CategoriesViewController
+@implementation LocationsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,13 +23,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobile.ucdavis.edu/locations/?format=json"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSError *jsonError = nil;
-        self.categories = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        self.categories = [self.categories filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"locations.@count > 0"]];
-        [self.tableView reloadData];
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,10 +37,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.categories.count;
+    return self.locations.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -58,18 +47,17 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = self.categories[indexPath.row][@"name"];
+    cell.textLabel.text = self.locations[indexPath.row][@"name"];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showLocations"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDictionary *category = self.categories[indexPath.row];
-        LocationsViewController *dest = (LocationsViewController *)segue.destinationViewController;
-        dest.category = category[@"name"];
-        dest.locations = category[@"locations"];
+        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        controller.category = self.category;
+        controller.detailItem = self.locations[indexPath.row];
     }
 }
 
