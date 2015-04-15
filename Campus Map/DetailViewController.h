@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Location.h"
+#import <MapKit/MapKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) NSDictionary *detailItem;
 @property (strong, nonatomic) NSString *category;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (strong) IBOutlet UIBarButtonItem *addFavoriteButton;
+@property (strong) IBOutlet UIBarButtonItem *removeFavoriteButton;
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+-(IBAction)addFavoriteButton:(id)sender;
+-(IBAction)removeFavoriteButton:(id)sender;
 
 @end
 

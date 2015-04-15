@@ -20,6 +20,7 @@ static FavoritesViewController *sharedInstance = nil;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.clearsSelectionOnViewWillAppear = NO;
         self.preferredContentSize = CGSizeMake(320.0, 600.0);
@@ -28,7 +29,7 @@ static FavoritesViewController *sharedInstance = nil;
     sharedInstance = self;
 }
 
--(FavoritesViewController *)sharedInstance {
++(FavoritesViewController *)sharedInstance {
     return sharedInstance;
 }
 
@@ -43,25 +44,6 @@ static FavoritesViewController *sharedInstance = nil;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    Location *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    newManagedObject.name = [NSDate date].description;
-        
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
 }
 
 #pragma mark - Segues
@@ -206,19 +188,71 @@ static FavoritesViewController *sharedInstance = nil;
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
+-(void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    Location *newLoc = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    // If appropriate, configure the new managed object.
+    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+    newLoc.category = cat;
+    [newLoc takeValuesFrom:loc];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
- */
+
+-(void)removeFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+    if([self isFavorite:loc inCategory:cat]){
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name == %@) AND (category == %@)", loc[@"name"], cat];
+        [request setPredicate:predicate];
+        
+        NSError *error = nil;
+        NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+        
+        [context deleteObject:array[0]];
+        
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+-(BOOL)isFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+    if(_managedObjectContext == nil){
+        self.managedObjectContext = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+    }
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name == %@) AND (category == %@)", loc[@"name"], cat];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    return (array.count > 0);
+}
 
 @end

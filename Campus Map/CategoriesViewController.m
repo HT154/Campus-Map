@@ -30,7 +30,10 @@
         NSError *jsonError = nil;
         self.categories = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
         self.categories = [self.categories filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"locations.@count > 0"]];
-        [self.tableView reloadData];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
     }];
 }
 

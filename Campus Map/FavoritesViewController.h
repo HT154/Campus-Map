@@ -17,6 +17,11 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
++(FavoritesViewController *)sharedInstance;
+
+-(void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat;
+-(void)removeFavorite:(NSDictionary *)loc inCategory:(NSString *)cat;
+-(BOOL)isFavorite:(NSDictionary *)loc inCategory:(NSString *)cat;
 
 @end
 
