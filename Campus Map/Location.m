@@ -19,6 +19,11 @@
 @dynamic lng;
 @dynamic name;
 
+- (NSString *)uppercaseFirstLetterOfName {
+    NSString *aString = [self.name uppercaseString];
+    return [aString substringWithRange:[aString rangeOfComposedCharacterSequenceAtIndex:0]];
+}
+
 -(NSDictionary *)dictionaryRepresentation {
     return [self dictionaryWithValuesForKeys:@[@"abbr", @"icon", @"lat", @"link", @"lng", @"name"]];
 }

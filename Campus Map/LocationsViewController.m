@@ -11,6 +11,9 @@
 
 @interface LocationsViewController ()
 
+@property (strong) NSMutableArray *sectionTitles;
+@property (strong) NSMutableDictionary *sections;
+
 @end
 
 @implementation LocationsViewController
@@ -33,14 +36,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setLocations:(NSArray *)locations {
+    _locations = locations;
+    
+    if (!self.sections) {
+        self.sections = [NSMutableDictionary dictionary];
+        self.sectionTitles = [NSMutableArray array];
+    }
+    
+    [self.sections removeAllObjects];
+    [self.sectionTitles removeAllObjects];
+    
+    for (NSDictionary *location in self.locations) {
+        NSString *c = [location[@"name"] substringToIndex:1];
+        
+        if (![self.sectionTitles containsObject:c]) {
+            [self.sections setValue:[NSMutableArray array] forKey:c];
+            [self.sectionTitles addObject:c];
+        }
+        
+        [self.sections[c] addObject:location];
+    }
+    
+    [self.sectionTitles sortedArrayUsingSelector:@selector(compare:)];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.locations.count;
+    return [self.sections[self.sectionTitles[section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -50,7 +80,11 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = self.locations[indexPath.row][@"name"];
+    cell.textLabel.text = ((NSArray *)self.sections[self.sectionTitles[indexPath.section]])[indexPath.row][@"name"];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return self.sectionTitles;
 }
 
 #pragma mark - Navigation
@@ -60,7 +94,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         controller.category = self.category;
-        controller.detailItem = self.locations[indexPath.row];
+        controller.detailItem = ((NSArray *)self.sections[self.sectionTitles[indexPath.section]])[indexPath.row];
     }
 }
 

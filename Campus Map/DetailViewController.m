@@ -40,7 +40,9 @@
 }
 
 - (void)configureView {
-    [self.mapView removeAnnotations:self.mapView.annotations];
+    if (self.a) {
+        [self.mapView removeAnnotation:self.a];
+    }
     
     if (self.detailItem) {
         self.navigationItem.title = self.detailItem[@"name"];
@@ -57,7 +59,11 @@
         }
     }
     
-    self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.04, 0.04));
+    self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.05, 0.05));
+}
+
+-(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    [self.mapView showAnnotations:mapView.annotations animated:YES];
 }
 
 -(IBAction)addFavoriteButton:(id)sender {

@@ -20,6 +20,8 @@
 @property (nonatomic, retain) NSNumber * lng;
 @property (nonatomic, retain) NSString * name;
 
+- (NSString *)uppercaseFirstLetterOfName;
+
 -(NSDictionary *)dictionaryRepresentation;
 -(void)takeValuesFrom:(NSDictionary *)dict;
 

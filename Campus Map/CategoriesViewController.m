@@ -28,8 +28,14 @@
     
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobile.ucdavis.edu/locations/?format=json"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSError *jsonError = nil;
-        self.categories = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        self.categories = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:&jsonError];
         self.categories = [self.categories filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"locations.@count > 0"]];
+        
+        for (NSMutableDictionary *cat in self.categories) {
+            cat[@"locations"] = [cat[@"locations"] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [obj1[@"name"] compare:obj2[@"name"]] == NSOrderedDescending;
+            }];
+        }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];

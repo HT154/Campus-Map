@@ -11,6 +11,6 @@
 @interface LocationsViewController : UITableViewController
 
 @property (strong) NSString *category;
-@property (strong) NSArray *locations;
+@property (strong, nonatomic) NSArray *locations;
 
 @end
