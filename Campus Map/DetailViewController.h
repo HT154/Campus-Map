@@ -20,8 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
--(IBAction)addFavoriteButton:(id)sender;
--(IBAction)removeFavoriteButton:(id)sender;
+- (IBAction)addFavoriteButton:(id)sender;
+- (IBAction)removeFavoriteButton:(id)sender;
 
 @end
 

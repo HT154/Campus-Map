@@ -15,7 +15,6 @@
 		03CF63621ADC77200067E143 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63611ADC77200067E143 /* DetailViewController.m */; };
 		03CF63651ADC77200067E143 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63631ADC77200067E143 /* Main.storyboard */; };
 		03CF63671ADC77200067E143 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63661ADC77200067E143 /* Images.xcassets */; };
-		03CF636A1ADC77200067E143 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63681ADC77200067E143 /* LaunchScreen.xib */; };
 		03CF63761ADC77200067E143 /* Campus_MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63751ADC77200067E143 /* Campus_MapTests.m */; };
 		03F454531ADD98EE00998531 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F454521ADD98EE00998531 /* Location.m */; };
 		03F454561ADD9B5E00998531 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F454551ADD9B5E00998531 /* LocationsViewController.m */; };
@@ -48,7 +47,6 @@
 		03CF63611ADC77200067E143 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		03CF63641ADC77200067E143 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03CF63661ADC77200067E143 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		03CF63691ADC77200067E143 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		03CF636F1ADC77200067E143 /* Campus MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Campus MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF63741ADC77200067E143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF63751ADC77200067E143 /* Campus_MapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Campus_MapTests.m; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				03F454571ADDAC3500998531 /* MapAnnotation.h */,
 				03F454581ADDAC3500998531 /* MapAnnotation.m */,
 				03CF63661ADC77200067E143 /* Images.xcassets */,
-				03CF63681ADC77200067E143 /* LaunchScreen.xib */,
 				03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */,
 				03CF63531ADC771F0067E143 /* Supporting Files */,
 			);
@@ -246,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03CF63651ADC77200067E143 /* Main.storyboard in Resources */,
-				03CF636A1ADC77200067E143 /* LaunchScreen.xib in Resources */,
 				03CF63671ADC77200067E143 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,14 +298,6 @@
 				03CF63641ADC77200067E143 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		03CF63681ADC77200067E143 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03CF63691ADC77200067E143 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

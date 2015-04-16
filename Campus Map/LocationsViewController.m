@@ -27,7 +27,7 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.category;
 }
 
@@ -36,7 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setLocations:(NSArray *)locations {
+- (void)setLocations:(NSArray *)locations {
     _locations = locations;
     
     if (!self.sections) {

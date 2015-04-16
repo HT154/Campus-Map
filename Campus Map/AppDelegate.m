@@ -60,8 +60,7 @@
     }
 }
 
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController showDetailViewController:(UIViewController *)detailVC sender:(id)sender
-{
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController showDetailViewController:(UIViewController *)detailVC sender:(id)sender {
     UITabBarController *masterVC = splitViewController.viewControllers[0];
     
     if (splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact)
@@ -72,8 +71,7 @@
     return YES;
 }
 
-- (UIViewController*)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController
-{
+- (UIViewController*)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController {
     UITabBarController *masterVC = splitViewController.viewControllers[0];
     
     if ([(UINavigationController*)masterVC.selectedViewController viewControllers].count > 1)

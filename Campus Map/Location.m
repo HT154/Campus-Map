@@ -24,11 +24,11 @@
     return [aString substringWithRange:[aString rangeOfComposedCharacterSequenceAtIndex:0]];
 }
 
--(NSDictionary *)dictionaryRepresentation {
+- (NSDictionary *)dictionaryRepresentation {
     return [self dictionaryWithValuesForKeys:@[@"abbr", @"icon", @"lat", @"link", @"lng", @"name"]];
 }
 
--(void)takeValuesFrom:(NSDictionary *)dict {
+- (void)takeValuesFrom:(NSDictionary *)dict {
     self.abbr = dict[@"abbr"];
     self.icon = dict[@"icon"];
     self.lat = @([dict[@"lat"] floatValue]);

@@ -22,7 +22,7 @@
 
 - (NSString *)uppercaseFirstLetterOfName;
 
--(NSDictionary *)dictionaryRepresentation;
--(void)takeValuesFrom:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
+- (void)takeValuesFrom:(NSDictionary *)dict;
 
 @end

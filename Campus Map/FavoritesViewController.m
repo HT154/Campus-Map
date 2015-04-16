@@ -29,7 +29,7 @@ static FavoritesViewController *sharedInstance = nil;
     sharedInstance = self;
 }
 
-+(FavoritesViewController *)sharedInstance {
++ (FavoritesViewController *)sharedInstance {
     return sharedInstance;
 }
 
@@ -104,14 +104,15 @@ static FavoritesViewController *sharedInstance = nil;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    Location *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = object.name;
+    cell.detailTextLabel.text = object.category;
+    //cell.imageView.image =
 }
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
+- (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
@@ -120,7 +121,6 @@ static FavoritesViewController *sharedInstance = nil;
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
     fetchRequest.entity = entity;
-    //fetchRequest.predicate = [];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -200,7 +200,7 @@ static FavoritesViewController *sharedInstance = nil;
     [self.tableView endUpdates];
 }
 
--(void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+- (void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Location *newLoc = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
@@ -220,7 +220,7 @@ static FavoritesViewController *sharedInstance = nil;
     }
 }
 
--(void)removeFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+- (void)removeFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
     if([self isFavorite:loc inCategory:cat]){
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         
@@ -245,7 +245,7 @@ static FavoritesViewController *sharedInstance = nil;
     }
 }
 
--(BOOL)isFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
+- (BOOL)isFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
     if(_managedObjectContext == nil){
         self.managedObjectContext = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
     }

@@ -39,6 +39,16 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([[FavoritesViewController sharedInstance] isFavorite:self.detailItem inCategory:self.category]) {
+        self.navigationItem.rightBarButtonItem = self.removeFavoriteButton;
+    } else {
+        self.navigationItem.rightBarButtonItem = self.addFavoriteButton;
+    }
+}
+
 - (void)configureView {
     if (self.a) {
         [self.mapView removeAnnotation:self.a];
@@ -62,17 +72,17 @@
     self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.05, 0.05));
 }
 
--(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     [self.mapView showAnnotations:mapView.annotations animated:YES];
 }
 
--(IBAction)addFavoriteButton:(id)sender {
+- (IBAction)addFavoriteButton:(id)sender {
     [[FavoritesViewController sharedInstance] addFavorite:self.detailItem inCategory:self.category];
     
     self.navigationItem.rightBarButtonItem = self.removeFavoriteButton;
 }
 
--(IBAction)removeFavoriteButton:(id)sender {
+- (IBAction)removeFavoriteButton:(id)sender {
     [[FavoritesViewController sharedInstance] removeFavorite:self.detailItem inCategory:self.category];
     
     self.navigationItem.rightBarButtonItem = self.addFavoriteButton;
@@ -98,18 +108,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)clickedLinkButton:(id)sender {
+- (IBAction)clickedLinkButton:(id)sender {
      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.detailItem[@"link"]]];
 }
 
--(IBAction)clickedRouteButton:(id)sender {
+- (IBAction)clickedRouteButton:(id)sender {
     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:[self.a coordinate] addressDictionary:nil]];
     mapItem.name = self.detailItem[@"name"];
     
     [mapItem openInMapsWithLaunchOptions:@{MKLaunchOptionsMapTypeKey: @(MKMapTypeStandard)}];
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     
