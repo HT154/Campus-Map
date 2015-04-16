@@ -22,7 +22,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oho-SH-pX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="-1074"/>
+            <point key="canvasLocation" x="-165" y="-1106"/>
         </scene>
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
@@ -87,7 +87,7 @@
                     </connections>
                 </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="1593" y="61"/>
+            <point key="canvasLocation" x="552" y="61"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Nki-YV-4Qg">
@@ -102,7 +102,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1224" y="61"/>
+            <point key="canvasLocation" x="-916" y="61"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -151,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="-734"/>
+            <point key="canvasLocation" x="1245" y="-734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -166,7 +166,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="61"/>
+            <point key="canvasLocation" x="-165" y="61"/>
         </scene>
         <!--Master-->
         <scene sceneID="cgt-4R-gBM">
@@ -225,7 +225,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6b4-Ms-3hz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="-1466"/>
+            <point key="canvasLocation" x="1947" y="-1466"/>
         </scene>
         <!--Master-->
         <scene sceneID="2ag-vb-Ugi">
@@ -268,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubn-Ee-cKR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="-1466"/>
+            <point key="canvasLocation" x="1245" y="-1466"/>
         </scene>
     </scenes>
     <resources>
@@ -277,6 +277,6 @@
         <image name="favorite_stroke" width="33" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="36X-0p-GF6"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

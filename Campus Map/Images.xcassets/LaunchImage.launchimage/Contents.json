@@ -1,27 +1,30 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "8.0",
+      "idiom" : "iphone",
       "subtype" : "736h",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.38.40.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
       "scale" : "3x"
     },
     {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.58.06.png",
+      "minimum-system-version" : "8.0",
       "orientation" : "landscape",
-      "idiom" : "iphone",
-      "extent" : "full-screen",
-      "minimum-system-version" : "8.0",
-      "subtype" : "736h",
       "scale" : "3x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "8.0",
+      "idiom" : "iphone",
       "subtype" : "667h",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.38.27.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     },
     {
@@ -29,14 +32,16 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.38.02.png",
       "scale" : "2x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "7.0",
+      "idiom" : "iphone",
       "subtype" : "retina4",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.38.17.png",
+      "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     },
     {
@@ -44,6 +49,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.40.26-1.png",
       "scale" : "1x"
     },
     {
@@ -51,6 +57,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.40.29-1.png",
       "scale" : "1x"
     },
     {
@@ -58,6 +65,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.40.26.png",
       "scale" : "2x"
     },
     {
@@ -65,6 +73,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot Apr 16, 2015, 12.40.29.png",
       "scale" : "2x"
     }
   ],
