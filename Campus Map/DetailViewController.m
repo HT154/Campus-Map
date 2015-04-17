@@ -18,6 +18,8 @@
 @property (strong) UIButton *l;
 @property (strong) UIButton *r;
 
+@property (assign) BOOL zooming;
+
 @end
 
 @implementation DetailViewController
@@ -60,7 +62,7 @@
         self.a = [[MapAnnotation alloc] init];
         self.a.coordinate = CLLocationCoordinate2DMake([self.detailItem[@"lat"] doubleValue], [self.detailItem[@"lng"] doubleValue]);
         [self.mapView addAnnotation:self.a];
-        [self.mapView selectAnnotation:self.a animated:NO];
+        self.zooming = NO;
         
         if ([[FavoritesViewController sharedInstance] isFavorite:self.detailItem inCategory:self.category]) {
             self.navigationItem.rightBarButtonItem = self.removeFavoriteButton;
@@ -73,7 +75,17 @@
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    [self.mapView showAnnotations:mapView.annotations animated:YES];
+    if ([views[0] isKindOfClass:NSClassFromString(@"MKUserLocationView")]) {
+        [self.mapView showAnnotations:mapView.annotations animated:YES];
+        self.zooming = YES;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if (self.zooming && self.a) {
+        [self.mapView selectAnnotation:self.a animated:YES];
+        self.zooming = NO;
+    }
 }
 
 - (IBAction)addFavoriteButton:(id)sender {
@@ -99,13 +111,7 @@
     }
     self.mapView.showsUserLocation = YES;
     
-    // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)clickedLinkButton:(id)sender {
