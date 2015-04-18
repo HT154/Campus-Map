@@ -35,9 +35,37 @@ static FavoritesViewController *sharedInstance = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.placeholderView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self updatePlaceholderViewAnimated:NO];
+}
+
+- (void)updatePlaceholderViewAnimated:(BOOL)animated {
+    NSTimeInterval duration = animated ? 0.25 : 0;
+    
+    if (self.tableView.numberOfSections > 0 && self.placeholderView.superview) {
+        [UIView animateWithDuration:duration animations:^{
+            self.placeholderView.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            [self.placeholderView removeFromSuperview];
+        }];
+    } else if (self.tableView.numberOfSections == 0 && !self.placeholderView.superview) {
+        self.placeholderView.alpha = 0.0f;
+        [self.view.superview addSubview:self.placeholderView];
+        
+        [self.view.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[placeholder]-0-|" options:0 metrics:nil views:@{@"placeholder": self.placeholderView}]];
+        [self.view.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[placeholder]-0-|" options:0 metrics:nil views:@{@"placeholder": self.placeholderView}]];
+        
+        [UIView animateWithDuration:duration animations:^{
+            self.placeholderView.alpha = 1.0f;
+        }];
+    }
 }
 
 #pragma mark - Segues
@@ -186,6 +214,7 @@ static FavoritesViewController *sharedInstance = nil;
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
+    [self updatePlaceholderViewAnimated:YES];
 }
 
 - (void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {

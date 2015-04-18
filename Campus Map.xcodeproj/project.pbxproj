@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0323F6191AE23DDF00812258 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0323F6181AE23DDF00812258 /* StarView.m */; };
 		03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */; };
 		03CF63561ADC771F0067E143 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63551ADC771F0067E143 /* main.m */; };
 		03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63581ADC771F0067E143 /* AppDelegate.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0323F6171AE23DDF00812258 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		0323F6181AE23DDF00812258 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
 		03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		03CF63501ADC771F0067E143 /* Campus Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Campus Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,8 @@
 				03F454521ADD98EE00998531 /* Location.m */,
 				03F454571ADDAC3500998531 /* MapAnnotation.h */,
 				03F454581ADDAC3500998531 /* MapAnnotation.m */,
+				0323F6171AE23DDF00812258 /* StarView.h */,
+				0323F6181AE23DDF00812258 /* StarView.m */,
 				03CF63661ADC77200067E143 /* Images.xcassets */,
 				03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */,
 				03CF63531ADC771F0067E143 /* Supporting Files */,
@@ -269,6 +274,7 @@
 				03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */,
 				03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */,
 				03F454531ADD98EE00998531 /* Location.m in Sources */,
+				0323F6191AE23DDF00812258 /* StarView.m in Sources */,
 				03CF63561ADC771F0067E143 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

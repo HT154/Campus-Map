@@ -11,11 +11,11 @@
 
 @interface CategoriesViewController ()
 
-@property (strong) NSArray *categories;
-
 @end
 
-@implementation CategoriesViewController
+@implementation CategoriesViewController {
+    NSMutableArray *categories;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,25 +32,36 @@
         [self.refreshControl endRefreshing];
         
         if (connectionError) {
-            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"Unable to load all locations. Your favorites are still available." preferredStyle:UIAlertControllerStyleAlert];
-            [ac addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:ac animated:YES completion:nil];
+            [self presentLoadError:connectionError];
         } else {
             NSError *jsonError = nil;
-            self.categories = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:&jsonError];
+            categories = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:&jsonError];
             
             if (jsonError) {
-                UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"Unable to load all locations. Your favorites are still available." preferredStyle:UIAlertControllerStyleAlert];
-                [ac addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-                [self presentViewController:ac animated:YES completion:nil];
+                [self presentLoadError:jsonError];
             } else {
-                self.categories = [self.categories filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"locations.@count > 0"]];
+                [categories filterUsingPredicate:[NSPredicate predicateWithFormat:@"locations.@count > 0"]];
+                NSMutableSet *allNames = [NSMutableSet set];
+                NSMutableArray *all = [NSMutableArray array];
                 
-                for (NSMutableDictionary *cat in self.categories) {
+                for (NSMutableDictionary *cat in categories) {
+                    for (NSDictionary *loc in cat[@"locations"]) {
+                        if (![allNames containsObject:loc[@"name"]]) {
+                            [allNames addObject:loc[@"name"]];
+                            [all addObject:loc];
+                        }
+                    }
+                    
                     cat[@"locations"] = [cat[@"locations"] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                        return [obj1[@"name"] compare:obj2[@"name"]] == NSOrderedDescending;
+                        return [obj1[@"name"] caseInsensitiveCompare:obj2[@"name"]] == NSOrderedDescending;
                     }];
                 }
+                
+                [all sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    return [obj1[@"name"] caseInsensitiveCompare:obj2[@"name"]] == NSOrderedDescending;
+                }];
+                
+                [categories addObject:@{@"name": @"All Locations", @"locations": all}];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
@@ -60,6 +71,12 @@
     }];
 }
 
+- (void)presentLoadError:(NSError *)error {
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Connection Error" message:@"Unable to load all locations. Your favorites are still available." preferredStyle:UIAlertControllerStyleAlert];
+    [ac addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:ac animated:YES completion:nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,7 +84,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.categories.count;
+    return categories.count;
 }
 
 
@@ -78,7 +95,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = self.categories[indexPath.row][@"name"];
+    cell.textLabel.text = categories[indexPath.row][@"name"];
 }
 
 #pragma mark - Navigation
@@ -86,7 +103,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showLocations"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDictionary *category = self.categories[indexPath.row];
+        NSDictionary *category = categories[indexPath.row];
         LocationsViewController *dest = (LocationsViewController *)segue.destinationViewController;
         dest.category = category[@"name"];
         dest.locations = category[@"locations"];

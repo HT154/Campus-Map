@@ -12,17 +12,17 @@
 
 @interface DetailViewController ()
 
-@property (strong) CLLocationManager *locationManager;
-@property (strong) MapAnnotation *a;
-
-@property (strong) UIButton *l;
-@property (strong) UIButton *r;
-
-@property (assign) BOOL zooming;
-
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    CLLocationManager *locationManager;
+    MapAnnotation *annotation;
+    
+    UIButton *lButton;
+    UIButton *rButton;
+    
+    BOOL zooming;
+}
 
 #pragma mark - Managing the detail item
 
@@ -30,11 +30,11 @@
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
-        self.l = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        [self.l setImage:[UIImage imageNamed:@"map"] forState:UIControlStateNormal];
+        lButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        [lButton setImage:[UIImage imageNamed:@"map"] forState:UIControlStateNormal];
         
-        self.r = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [self.r setImage:[UIImage imageNamed:@"globe"] forState:UIControlStateNormal];
+        rButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [rButton setImage:[UIImage imageNamed:@"globe"] forState:UIControlStateNormal];
         
         // Update the view.
         [self configureView];
@@ -44,6 +44,37 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self showCorrectFavoritesButton];
+}
+
+- (void)configureView {
+    if (annotation) {
+        [self.mapView removeAnnotation:annotation];
+    }
+    
+    if (self.detailItem) {
+        self.navigationItem.title = self.detailItem[@"name"];
+        self.addFavoriteButton.enabled = YES;
+        self.removeFavoriteButton.enabled = YES;
+        
+        annotation = [[MapAnnotation alloc] init];
+        annotation.coordinate = CLLocationCoordinate2DMake([self.detailItem[@"lat"] doubleValue], [self.detailItem[@"lng"] doubleValue]);
+        self.mapView.region = MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
+        [self.mapView addAnnotation:annotation];
+        zooming = NO;
+        
+        [self showCorrectFavoritesButton];
+    } else {
+        self.addFavoriteButton.enabled = NO;
+        self.removeFavoriteButton.enabled = NO;
+        annotation = nil;
+        
+        //If there is no location, center the map roughly on the UCD campus
+        self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.05, 0.05));
+    }
+}
+
+- (void)showCorrectFavoritesButton {
     if ([[FavoritesViewController sharedInstance] isFavorite:self.detailItem inCategory:self.category]) {
         self.navigationItem.rightBarButtonItem = self.removeFavoriteButton;
     } else {
@@ -51,40 +82,17 @@
     }
 }
 
-- (void)configureView {
-    if (self.a) {
-        [self.mapView removeAnnotation:self.a];
-    }
-    
-    if (self.detailItem) {
-        self.navigationItem.title = self.detailItem[@"name"];
-        
-        self.a = [[MapAnnotation alloc] init];
-        self.a.coordinate = CLLocationCoordinate2DMake([self.detailItem[@"lat"] doubleValue], [self.detailItem[@"lng"] doubleValue]);
-        [self.mapView addAnnotation:self.a];
-        self.zooming = NO;
-        
-        if ([[FavoritesViewController sharedInstance] isFavorite:self.detailItem inCategory:self.category]) {
-            self.navigationItem.rightBarButtonItem = self.removeFavoriteButton;
-        } else {
-            self.navigationItem.rightBarButtonItem = self.addFavoriteButton;
-        }
-    }
-    
-    self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.05, 0.05));
-}
-
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    if ([views[0] isKindOfClass:NSClassFromString(@"MKUserLocationView")]) {
+    if (annotation && [views[0] isKindOfClass:NSClassFromString(@"MKUserLocationView")]) {
         [self.mapView showAnnotations:mapView.annotations animated:YES];
-        self.zooming = YES;
+        zooming = YES;
     }
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    if (self.zooming && self.a) {
-        [self.mapView selectAnnotation:self.a animated:YES];
-        self.zooming = NO;
+    if (zooming && annotation) {
+        [self.mapView selectAnnotation:annotation animated:YES];
+        zooming = NO;
     }
 }
 
@@ -103,11 +111,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
     
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
+    if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
     }
     self.mapView.showsUserLocation = YES;
     
@@ -119,34 +127,34 @@
 }
 
 - (IBAction)clickedRouteButton:(id)sender {
-    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:[self.a coordinate] addressDictionary:nil]];
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:[annotation coordinate] addressDictionary:nil]];
     mapItem.name = self.detailItem[@"name"];
     
     [mapItem openInMapsWithLaunchOptions:@{MKLaunchOptionsMapTypeKey: @(MKMapTypeStandard)}];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    if ([annotation isKindOfClass:[MKUserLocation class]])
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)a{
+    if ([a isKindOfClass:[MKUserLocation class]])
         return nil;
     
-    if([annotation isKindOfClass:[MapAnnotation class]]){
+    if([a isKindOfClass:[MapAnnotation class]]){
         MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
         
         if(!annotationView){
             annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
             annotationView.canShowCallout = YES;
-            annotationView.leftCalloutAccessoryView = self.l;
-            annotationView.rightCalloutAccessoryView = self.r;
+            annotationView.leftCalloutAccessoryView = lButton;
+            annotationView.rightCalloutAccessoryView = rButton;
             annotationView.pinColor = MKPinAnnotationColorRed;
         }
         
-        [self.r removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
-        [self.r addTarget:self action:@selector(clickedLinkButton:) forControlEvents:UIControlEventTouchUpInside];
+        [rButton removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
+        [rButton addTarget:self action:@selector(clickedLinkButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self.l removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
-        [self.l addTarget:self action:@selector(clickedRouteButton:) forControlEvents:UIControlEventTouchUpInside];
+        [lButton removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
+        [lButton addTarget:self action:@selector(clickedRouteButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.r.enabled = self.detailItem[@"link"] && ![self.detailItem[@"link"] isEqualToString:@""];
+        rButton.enabled = self.detailItem[@"link"] && ![self.detailItem[@"link"] isEqualToString:@""];
         
         annotationView.annotation = annotation;
         

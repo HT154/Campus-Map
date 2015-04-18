@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -148,8 +148,42 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="Zdf-7t-Un8"/>
+                    <connections>
+                        <outlet property="placeholderView" destination="RV8-zc-Lrz" id="Aci-cx-oZI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="RV8-zc-Lrz">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations You Mark as Favorites Will Appear Here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-ZB-Xk0">
+                            <rect key="frame" x="40" y="244" width="520" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="cIS-ML-eev"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jg0-nC-yzJ" customClass="StarView">
+                            <rect key="frame" x="240" y="116" width="120" height="120"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="1Hg-rP-nud"/>
+                                <constraint firstAttribute="width" constant="120" id="5wp-XI-ffl"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fTo-ZB-Xk0" secondAttribute="trailing" constant="40" id="QYc-op-6kU"/>
+                        <constraint firstItem="fTo-ZB-Xk0" firstAttribute="top" secondItem="jg0-nC-yzJ" secondAttribute="bottom" constant="8" id="TSP-rq-Wph"/>
+                        <constraint firstAttribute="centerY" secondItem="fTo-ZB-Xk0" secondAttribute="centerY" constant="0.5" id="Uoj-PI-Ud8"/>
+                        <constraint firstAttribute="centerX" secondItem="jg0-nC-yzJ" secondAttribute="centerX" id="bie-ym-Yey"/>
+                        <constraint firstItem="fTo-ZB-Xk0" firstAttribute="leading" secondItem="RV8-zc-Lrz" secondAttribute="leading" constant="40" id="oFZ-VB-I1f"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1245" y="-734"/>
         </scene>

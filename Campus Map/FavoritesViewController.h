@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (strong) IBOutlet UIView *placeholderView;
+
 + (FavoritesViewController *)sharedInstance;
 
 - (void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat;

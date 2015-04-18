@@ -11,12 +11,12 @@
 
 @interface LocationsViewController ()
 
-@property (strong) NSMutableArray *sectionTitles;
-@property (strong) NSMutableDictionary *sections;
-
 @end
 
-@implementation LocationsViewController
+@implementation LocationsViewController {
+    NSMutableArray *sectionTitles;
+    NSMutableDictionary *sections;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,26 +33,26 @@
 - (void)setLocations:(NSArray *)locations {
     _locations = locations;
     
-    if (!self.sections) {
-        self.sections = [NSMutableDictionary dictionary];
-        self.sectionTitles = [NSMutableArray array];
+    if (!sections) {
+        sections = [NSMutableDictionary dictionary];
+        sectionTitles = [NSMutableArray array];
     }
     
-    [self.sections removeAllObjects];
-    [self.sectionTitles removeAllObjects];
+    [sections removeAllObjects];
+    [sectionTitles removeAllObjects];
     
     for (NSDictionary *location in self.locations) {
         NSString *c = [location[@"name"] substringToIndex:1];
         
-        if (![self.sectionTitles containsObject:c]) {
-            [self.sections setValue:[NSMutableArray array] forKey:c];
-            [self.sectionTitles addObject:c];
+        if (![sectionTitles containsObject:c]) {
+            [sections setValue:[NSMutableArray array] forKey:c];
+            [sectionTitles addObject:c];
         }
         
-        [self.sections[c] addObject:location];
+        [sections[c] addObject:location];
     }
     
-    [self.sectionTitles sortedArrayUsingSelector:@selector(compare:)];
+    [sectionTitles sortedArrayUsingSelector:@selector(compare:)];
     
     [self.tableView reloadData];
 }
@@ -60,11 +60,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.sections.count;
+    return sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.sections[self.sectionTitles[section]] count];
+    return [sections[sectionTitles[section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,11 +74,11 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = ((NSArray *)self.sections[self.sectionTitles[indexPath.section]])[indexPath.row][@"name"];
+    cell.textLabel.text = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row][@"name"];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return self.sectionTitles;
+    return sectionTitles;
 }
 
 #pragma mark - Navigation
@@ -88,7 +88,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         controller.category = self.category;
-        controller.detailItem = ((NSArray *)self.sections[self.sectionTitles[indexPath.section]])[indexPath.row];
+        controller.detailItem = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row];
     }
 }
 
