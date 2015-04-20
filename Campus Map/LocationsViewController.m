@@ -8,6 +8,7 @@
 
 #import "LocationsViewController.h"
 #import "DetailViewController.h"
+#import "FixedImageWidthTableViewCell.h"
 
 @interface LocationsViewController ()
 
@@ -69,12 +70,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row][@"name"];
+- (void)configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.textLabel2.text = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row][@"name"];
+    cell.imageView2.image = [UIImage imageNamed:((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row][@"icon"]];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
@@ -84,12 +86,10 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        controller.category = self.category;
-        controller.detailItem = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row];
-    }
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+    controller.category = self.category;
+    controller.detailItem = ((NSArray *)sections[sectionTitles[indexPath.section]])[indexPath.row];
 }
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0323F6191AE23DDF00812258 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0323F6181AE23DDF00812258 /* StarView.m */; };
 		03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */; };
+		0387BF871AE4EAB300C75418 /* FixedImageWidthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0387BF861AE4EAB300C75418 /* FixedImageWidthTableViewCell.m */; };
 		03CF63561ADC771F0067E143 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63551ADC771F0067E143 /* main.m */; };
 		03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63581ADC771F0067E143 /* AppDelegate.m */; };
 		03CF635C1ADC771F0067E143 /* Campus_Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */; };
@@ -38,6 +39,8 @@
 		0323F6181AE23DDF00812258 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
 		03837D4E1ADCD20900F746A9 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		03837D4F1ADCD20900F746A9 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		0387BF851AE4EAB300C75418 /* FixedImageWidthTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedImageWidthTableViewCell.h; sourceTree = "<group>"; };
+		0387BF861AE4EAB300C75418 /* FixedImageWidthTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixedImageWidthTableViewCell.m; sourceTree = "<group>"; };
 		03CF63501ADC771F0067E143 /* Campus Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Campus Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF63541ADC771F0067E143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF63551ADC771F0067E143 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				03F454581ADDAC3500998531 /* MapAnnotation.m */,
 				0323F6171AE23DDF00812258 /* StarView.h */,
 				0323F6181AE23DDF00812258 /* StarView.m */,
+				0387BF851AE4EAB300C75418 /* FixedImageWidthTableViewCell.h */,
+				0387BF861AE4EAB300C75418 /* FixedImageWidthTableViewCell.m */,
 				03CF63661ADC77200067E143 /* Images.xcassets */,
 				03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */,
 				03CF63531ADC771F0067E143 /* Supporting Files */,
@@ -215,6 +220,12 @@
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
 						};
 					};
 					03CF636E1ADC77200067E143 = {
@@ -274,6 +285,7 @@
 				03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */,
 				03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */,
 				03F454531ADD98EE00998531 /* Location.m in Sources */,
+				0387BF871AE4EAB300C75418 /* FixedImageWidthTableViewCell.m in Sources */,
 				0323F6191AE23DDF00812258 /* StarView.m in Sources */,
 				03CF63561ADC771F0067E143 /* main.m in Sources */,
 			);
@@ -397,9 +409,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Campus Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -409,9 +423,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Campus Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

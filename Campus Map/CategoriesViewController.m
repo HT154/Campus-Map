@@ -8,6 +8,7 @@
 
 #import "CategoriesViewController.h"
 #import "LocationsViewController.h"
+#import "FixedImageWidthTableViewCell.h"
 
 @interface CategoriesViewController ()
 
@@ -89,25 +90,40 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    UITableViewCell *cell = nil;
+    
+    if (indexPath.row == categories.count - 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellPlain" forIndexPath:indexPath];
+        cell.textLabel.text = categories[indexPath.row][@"name"];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        [self configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:indexPath];
+    }
+    
+    
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.textLabel.text = categories[indexPath.row][@"name"];
+- (void)configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.textLabel2.text = categories[indexPath.row][@"name"];
+    
+    UIImage *image = nil;
+    
+    if (indexPath.row < categories.count - 1) {
+        image = [UIImage imageNamed:categories[indexPath.row][@"locations"][0][@"icon"]];
+    }
+    
+    cell.imageView2.image = image;
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showLocations"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDictionary *category = categories[indexPath.row];
-        LocationsViewController *dest = (LocationsViewController *)segue.destinationViewController;
-        dest.category = category[@"name"];
-        dest.locations = category[@"locations"];
-    }
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSDictionary *category = categories[indexPath.row];
+    LocationsViewController *dest = (LocationsViewController *)segue.destinationViewController;
+    dest.category = category[@"name"];
+    dest.locations = category[@"locations"];
 }
 
 @end

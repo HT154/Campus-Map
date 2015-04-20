@@ -9,6 +9,7 @@
 #import "FavoritesViewController.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import "FixedImageWidthTableViewCell.h"
 
 @interface FavoritesViewController ()
 
@@ -71,13 +72,11 @@ static FavoritesViewController *sharedInstance = nil;
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Location *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        controller.category = object.category;
-        controller.detailItem = [object dictionaryRepresentation];
-    }
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Location *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+    controller.category = object.category;
+    controller.detailItem = [object dictionaryRepresentation];
 }
 
 #pragma mark - Table View
@@ -101,7 +100,7 @@ static FavoritesViewController *sharedInstance = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -124,11 +123,11 @@ static FavoritesViewController *sharedInstance = nil;
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Location *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = object.name;
-    cell.detailTextLabel.text = object.category;
-    //cell.imageView.image =
+    cell.textLabel2.text = object.name;
+    cell.detailTextLabel2.text = object.category;
+    cell.imageView2.image = [UIImage imageNamed:object.icon];
 }
 
 #pragma mark - Fetched results controller
@@ -164,8 +163,7 @@ static FavoritesViewController *sharedInstance = nil;
     return _fetchedResultsController;
 }    
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
 }
 
@@ -202,7 +200,7 @@ static FavoritesViewController *sharedInstance = nil;
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(FixedImageWidthTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
