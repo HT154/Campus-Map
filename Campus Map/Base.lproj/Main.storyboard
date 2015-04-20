@@ -6,15 +6,17 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Blue Tab Bar Controller-->
         <scene sceneID="2HB-si-ZAe">
             <objects>
-                <tabBarController id="PTw-vO-D8U" sceneMemberID="viewController">
+                <tabBarController id="PTw-vO-D8U" customClass="BlueTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="nB0-vY-469">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.11372549019607843" green="0.21176470588235294" blue="0.35294117647058826" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.11372549019607843" green="0.21176470588235294" blue="0.35294117647058826" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="rg3-gU-eWr" kind="relationship" relationship="viewControllers" id="gl6-Cy-Xic"/>
@@ -28,7 +30,7 @@
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="Master" id="RMx-3f-FxP" customClass="BlueBarNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="rjy-so-ioS"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
@@ -93,9 +95,10 @@
         <!--Favorites-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
-                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
+                <splitViewController id="H1p-Uh-vWS" customClass="LightStatusBarSplitViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="UaI-uP-6gy"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
                         <segue destination="PTw-vO-D8U" kind="relationship" relationship="masterViewController" id="8JT-8X-fRx"/>
@@ -187,7 +190,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations You Mark as Favorites Will Appear Here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-ZB-Xk0">
-                            <rect key="frame" x="40" y="244" width="520" height="80"/>
+                            <rect key="frame" x="40" y="294" width="520" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="cIS-ML-eev"/>
                             </constraints>
@@ -196,7 +199,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jg0-nC-yzJ" customClass="StarView">
-                            <rect key="frame" x="240" y="116" width="120" height="120"/>
+                            <rect key="frame" x="240" y="166" width="120" height="120"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="120" id="1Hg-rP-nud"/>
@@ -208,7 +211,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="fTo-ZB-Xk0" secondAttribute="trailing" constant="40" id="QYc-op-6kU"/>
                         <constraint firstItem="fTo-ZB-Xk0" firstAttribute="top" secondItem="jg0-nC-yzJ" secondAttribute="bottom" constant="8" id="TSP-rq-Wph"/>
-                        <constraint firstAttribute="centerY" secondItem="fTo-ZB-Xk0" secondAttribute="centerY" constant="0.5" id="Uoj-PI-Ud8"/>
+                        <constraint firstAttribute="centerY" secondItem="fTo-ZB-Xk0" secondAttribute="centerY" constant="-50" id="Uoj-PI-Ud8"/>
                         <constraint firstAttribute="centerX" secondItem="jg0-nC-yzJ" secondAttribute="centerX" id="bie-ym-Yey"/>
                         <constraint firstItem="fTo-ZB-Xk0" firstAttribute="leading" secondItem="RV8-zc-Lrz" secondAttribute="leading" constant="40" id="oFZ-VB-I1f"/>
                     </constraints>
@@ -216,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="1245" y="-734"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Blue Bar Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController id="vC3-pB-5Vb" customClass="BlueBarNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -231,10 +234,36 @@
             </objects>
             <point key="canvasLocation" x="-165" y="61"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Pz9-75-pJW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldu-9s-4Z4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="VjS-SA-4Vz" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QVG-6h-UXk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f3X-f7-iqQ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3X-f7-iqQ" id="3DS-cb-cM9">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VjS-SA-4Vz" id="Q7M-61-Vql"/>
+                            <outlet property="delegate" destination="VjS-SA-4Vz" id="EoV-Ax-HDy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-126" y="-2197"/>
+        </scene>
         <!--Master-->
         <scene sceneID="cgt-4R-gBM">
             <objects>
-                <navigationController title="Master" id="rg3-gU-eWr" sceneMemberID="viewController">
+                <navigationController title="Master" id="rg3-gU-eWr" customClass="BlueBarNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Categories" image="categories" id="dwy-kU-TGu"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kAN-aG-No8">
                         <autoresizingMask key="autoresizingMask"/>
@@ -421,7 +450,8 @@
         <image name="favorite_stroke" width="33" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GsI-bB-wSf"/>
         <segue reference="iIq-5n-YxT"/>
+        <segue reference="GsI-bB-wSf"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.1137254902" green="0.21176470589999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

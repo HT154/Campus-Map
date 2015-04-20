@@ -18,6 +18,13 @@
 		03CF63651ADC77200067E143 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63631ADC77200067E143 /* Main.storyboard */; };
 		03CF63671ADC77200067E143 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF63661ADC77200067E143 /* Images.xcassets */; };
 		03CF63761ADC77200067E143 /* Campus_MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CF63751ADC77200067E143 /* Campus_MapTests.m */; };
+		03DDD5891AE59CC200B64EFB /* FuturaUCDavis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DDD5851AE59B7C00B64EFB /* FuturaUCDavis-Bold.ttf */; };
+		03DDD58A1AE59CC200B64EFB /* FuturaUCDavis-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DDD5861AE59B7C00B64EFB /* FuturaUCDavis-Book.ttf */; };
+		03DDD58B1AE59CC200B64EFB /* FuturaUCDavis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DDD5871AE59B7C00B64EFB /* FuturaUCDavis-Light.ttf */; };
+		03DDD58C1AE59CC200B64EFB /* FuturaUCDavis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DDD5881AE59B7C00B64EFB /* FuturaUCDavis-Medium.ttf */; };
+		03DDD58F1AE59D6F00B64EFB /* BlueBarNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD58E1AE59D6F00B64EFB /* BlueBarNavigationController.m */; };
+		03DDD5921AE5A0CC00B64EFB /* BlueTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD5911AE5A0CC00B64EFB /* BlueTabBarController.m */; };
+		03DDD5951AE5A16800B64EFB /* LightStatusBarSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD5941AE5A16800B64EFB /* LightStatusBarSplitViewController.m */; };
 		03F454531ADD98EE00998531 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F454521ADD98EE00998531 /* Location.m */; };
 		03F454561ADD9B5E00998531 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F454551ADD9B5E00998531 /* LocationsViewController.m */; };
 		03F454591ADDAC3500998531 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F454581ADDAC3500998531 /* MapAnnotation.m */; };
@@ -56,6 +63,16 @@
 		03CF636F1ADC77200067E143 /* Campus MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Campus MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF63741ADC77200067E143 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF63751ADC77200067E143 /* Campus_MapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Campus_MapTests.m; sourceTree = "<group>"; };
+		03DDD5851AE59B7C00B64EFB /* FuturaUCDavis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FuturaUCDavis-Bold.ttf"; path = "Campus Map/FuturaUCDavis-Bold.ttf"; sourceTree = SOURCE_ROOT; };
+		03DDD5861AE59B7C00B64EFB /* FuturaUCDavis-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FuturaUCDavis-Book.ttf"; path = "Campus Map/FuturaUCDavis-Book.ttf"; sourceTree = SOURCE_ROOT; };
+		03DDD5871AE59B7C00B64EFB /* FuturaUCDavis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FuturaUCDavis-Light.ttf"; path = "Campus Map/FuturaUCDavis-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		03DDD5881AE59B7C00B64EFB /* FuturaUCDavis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FuturaUCDavis-Medium.ttf"; path = "Campus Map/FuturaUCDavis-Medium.ttf"; sourceTree = SOURCE_ROOT; };
+		03DDD58D1AE59D6F00B64EFB /* BlueBarNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBarNavigationController.h; sourceTree = "<group>"; };
+		03DDD58E1AE59D6F00B64EFB /* BlueBarNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueBarNavigationController.m; sourceTree = "<group>"; };
+		03DDD5901AE5A0CC00B64EFB /* BlueTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueTabBarController.h; sourceTree = "<group>"; };
+		03DDD5911AE5A0CC00B64EFB /* BlueTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueTabBarController.m; sourceTree = "<group>"; };
+		03DDD5931AE5A16800B64EFB /* LightStatusBarSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightStatusBarSplitViewController.h; sourceTree = "<group>"; };
+		03DDD5941AE5A16800B64EFB /* LightStatusBarSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightStatusBarSplitViewController.m; sourceTree = "<group>"; };
 		03F454511ADD98EE00998531 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		03F454521ADD98EE00998531 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		03F454541ADD9B5E00998531 /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
@@ -128,10 +145,7 @@
 				03F454521ADD98EE00998531 /* Location.m */,
 				03F454571ADDAC3500998531 /* MapAnnotation.h */,
 				03F454581ADDAC3500998531 /* MapAnnotation.m */,
-				0323F6171AE23DDF00812258 /* StarView.h */,
-				0323F6181AE23DDF00812258 /* StarView.m */,
-				0387BF851AE4EAB300C75418 /* FixedImageWidthTableViewCell.h */,
-				0387BF861AE4EAB300C75418 /* FixedImageWidthTableViewCell.m */,
+				03DDD5961AE5A1FC00B64EFB /* UI Tweaks */,
 				03CF63661ADC77200067E143 /* Images.xcassets */,
 				03CF635A1ADC771F0067E143 /* Campus_Map.xcdatamodeld */,
 				03CF63531ADC771F0067E143 /* Supporting Files */,
@@ -142,6 +156,10 @@
 		03CF63531ADC771F0067E143 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03DDD5851AE59B7C00B64EFB /* FuturaUCDavis-Bold.ttf */,
+				03DDD5861AE59B7C00B64EFB /* FuturaUCDavis-Book.ttf */,
+				03DDD5871AE59B7C00B64EFB /* FuturaUCDavis-Light.ttf */,
+				03DDD5881AE59B7C00B64EFB /* FuturaUCDavis-Medium.ttf */,
 				03CF63541ADC771F0067E143 /* Info.plist */,
 				03CF63551ADC771F0067E143 /* main.m */,
 				03F69D7A1ADCBA2C0040FF54 /* MapKit.framework */,
@@ -164,6 +182,23 @@
 				03CF63741ADC77200067E143 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03DDD5961AE5A1FC00B64EFB /* UI Tweaks */ = {
+			isa = PBXGroup;
+			children = (
+				0323F6171AE23DDF00812258 /* StarView.h */,
+				0323F6181AE23DDF00812258 /* StarView.m */,
+				0387BF851AE4EAB300C75418 /* FixedImageWidthTableViewCell.h */,
+				0387BF861AE4EAB300C75418 /* FixedImageWidthTableViewCell.m */,
+				03DDD58D1AE59D6F00B64EFB /* BlueBarNavigationController.h */,
+				03DDD58E1AE59D6F00B64EFB /* BlueBarNavigationController.m */,
+				03DDD5901AE5A0CC00B64EFB /* BlueTabBarController.h */,
+				03DDD5911AE5A0CC00B64EFB /* BlueTabBarController.m */,
+				03DDD5931AE5A16800B64EFB /* LightStatusBarSplitViewController.h */,
+				03DDD5941AE5A16800B64EFB /* LightStatusBarSplitViewController.m */,
+			);
+			name = "UI Tweaks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +295,10 @@
 			files = (
 				03CF63651ADC77200067E143 /* Main.storyboard in Resources */,
 				03CF63671ADC77200067E143 /* Images.xcassets in Resources */,
+				03DDD5891AE59CC200B64EFB /* FuturaUCDavis-Bold.ttf in Resources */,
+				03DDD58A1AE59CC200B64EFB /* FuturaUCDavis-Book.ttf in Resources */,
+				03DDD58B1AE59CC200B64EFB /* FuturaUCDavis-Light.ttf in Resources */,
+				03DDD58C1AE59CC200B64EFB /* FuturaUCDavis-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,11 +322,14 @@
 				03CF635F1ADC771F0067E143 /* FavoritesViewController.m in Sources */,
 				03CF635C1ADC771F0067E143 /* Campus_Map.xcdatamodeld in Sources */,
 				03837D501ADCD20900F746A9 /* CategoriesViewController.m in Sources */,
+				03DDD5951AE5A16800B64EFB /* LightStatusBarSplitViewController.m in Sources */,
 				03CF63591ADC771F0067E143 /* AppDelegate.m in Sources */,
 				03F454531ADD98EE00998531 /* Location.m in Sources */,
 				0387BF871AE4EAB300C75418 /* FixedImageWidthTableViewCell.m in Sources */,
+				03DDD58F1AE59D6F00B64EFB /* BlueBarNavigationController.m in Sources */,
 				0323F6191AE23DDF00812258 /* StarView.m in Sources */,
 				03CF63561ADC771F0067E143 /* main.m in Sources */,
+				03DDD5921AE5A0CC00B64EFB /* BlueTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
