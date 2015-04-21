@@ -21,18 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.clearsSelectionOnViewWillAppear = YES;
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [self refresh];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (self.splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
-    }
 }
 
 - (void)refresh {
@@ -53,6 +47,7 @@
                 NSMutableSet *allNames = [NSMutableSet set];
                 NSMutableArray *all = [NSMutableArray array];
                 
+                //add unique locations to 'all locations' array and sort individual categories
                 for (NSMutableDictionary *cat in categories) {
                     for (NSMutableDictionary *loc in cat[@"locations"]) {
                         loc[@"category"] = cat[@"name"];
@@ -68,12 +63,14 @@
                     }];
                 }
                 
+                //sort 'all locations' category
                 [all sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
                     return [obj1[@"name"] caseInsensitiveCompare:obj2[@"name"]] == NSOrderedDescending;
                 }];
                 
                 [categories addObject:@{@"name": @"All Locations", @"locations": all}];
                 
+                //redirect back to main thread
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
                 });
@@ -101,6 +98,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     
+    //use plain cell for 'all locations', use a representative image (the first child's icon) for others
     if (indexPath.row == categories.count - 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellPlain" forIndexPath:indexPath];
         cell.textLabel.text = categories[indexPath.row][@"name"];
@@ -109,20 +107,12 @@
         [self configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:indexPath];
     }
     
-    
     return cell;
 }
 
 - (void)configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     cell.textLabel2.text = categories[indexPath.row][@"name"];
-    
-    UIImage *image = nil;
-    
-    if (indexPath.row < categories.count - 1) {
-        image = [UIImage imageNamed:categories[indexPath.row][@"locations"][0][@"icon"]];
-    }
-    
-    cell.imageView2.image = image;
+    cell.imageView2.image = [UIImage imageNamed:categories[indexPath.row][@"locations"][0][@"icon"]];;
 }
 
 #pragma mark - Navigation

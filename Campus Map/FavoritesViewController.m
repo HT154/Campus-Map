@@ -48,6 +48,7 @@ static FavoritesViewController *sharedInstance = nil;
     
     [self updatePlaceholderViewAnimated:NO];
     
+    //if not iPad or iPhone 6+ in landscape, deselect selected row upon appearing
     if (self.splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
     }
@@ -56,6 +57,7 @@ static FavoritesViewController *sharedInstance = nil;
 - (void)updatePlaceholderViewAnimated:(BOOL)animated {
     NSTimeInterval duration = animated ? 0.25 : 0;
     
+    //hide or show the placeholder for an empty table as necessary
     if (self.tableView.numberOfSections > 0 && self.placeholderView.superview) {
         [UIView animateWithDuration:duration animations:^{
             self.placeholderView.alpha = 0.0f;
@@ -220,6 +222,8 @@ static FavoritesViewController *sharedInstance = nil;
     [self.tableView endUpdates];
     [self updatePlaceholderViewAnimated:YES];
 }
+
+#pragma mark - External add/remove favorites interface
 
 - (void)addFavorite:(NSDictionary *)loc inCategory:(NSString *)cat {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];

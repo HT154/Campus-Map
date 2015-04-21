@@ -32,6 +32,7 @@
     
     self.navigationItem.title = self.category;
     
+    //if not iPad or iPhone 6+ in landscape, deselect selected row upon appearing
     if (self.splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
     }
@@ -47,6 +48,8 @@
     
     [sections removeAllObjects];
     [sectionTitles removeAllObjects];
+    
+    //build sections for alphabetical indexing
     
     for (NSDictionary *location in self.locations) {
         NSString *c = [location[@"name"] substringToIndex:1];

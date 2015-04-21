@@ -52,7 +52,10 @@
         
         annotation = [[MapAnnotation alloc] init];
         annotation.coordinate = CLLocationCoordinate2DMake([self.detailItem[@"lat"] doubleValue], [self.detailItem[@"lng"] doubleValue]);
+        
+        //center map on current location
         self.mapView.region = MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
+        
         [self.mapView addAnnotation:annotation];
         zooming = NO;
         
@@ -76,13 +79,20 @@
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    //If/when the user location dot is added to the map, begin zooming to show both user and current location
     if (annotation && [views[0] isKindOfClass:NSClassFromString(@"MKUserLocationView")]) {
         [self.mapView showAnnotations:mapView.annotations animated:YES];
         zooming = YES;
     }
+    
+    //If not auhorized to access user location, automatically show annotation view
+    if ([CLLocationManager authorizationStatus] <= kCLAuthorizationStatusDenied) {
+        [self.mapView selectAnnotation:annotation animated:YES];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    //after zooming to show both user and current location annotations, open the annotation view with the 'route with Maps' and 'open URL' buttons
     if (zooming && annotation) {
         [self.mapView selectAnnotation:annotation animated:YES];
         zooming = NO;
