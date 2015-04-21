@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -234,32 +234,6 @@
             </objects>
             <point key="canvasLocation" x="-165" y="61"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Pz9-75-pJW">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldu-9s-4Z4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="VjS-SA-4Vz" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QVG-6h-UXk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f3X-f7-iqQ">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3X-f7-iqQ" id="3DS-cb-cM9">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="VjS-SA-4Vz" id="Q7M-61-Vql"/>
-                            <outlet property="delegate" destination="VjS-SA-4Vz" id="EoV-Ax-HDy"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="-126" y="-2197"/>
-        </scene>
         <!--Master-->
         <scene sceneID="cgt-4R-gBM">
             <objects>
@@ -450,7 +424,7 @@
         <image name="favorite_stroke" width="33" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iIq-5n-YxT"/>
+        <segue reference="lzG-A9-ie7"/>
         <segue reference="GsI-bB-wSf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1137254902" green="0.21176470589999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>

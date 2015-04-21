@@ -44,7 +44,13 @@ static FavoritesViewController *sharedInstance = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [self updatePlaceholderViewAnimated:NO];
+    
+    if (self.splitViewController.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
+    }
 }
 
 - (void)updatePlaceholderViewAnimated:(BOOL)animated {

@@ -69,7 +69,7 @@
         self.removeFavoriteButton.enabled = NO;
         annotation = nil;
         
-        //If there is no location, center the map roughly on the UCD campus
+        //If there is no location (like on first load on iPad or iPhone6+ landscape), center the map roughly on the UCD campus
         self.mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(38.538372, -121.756240), MKCoordinateSpanMake(0.05, 0.05));
     }
 }
