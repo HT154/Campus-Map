@@ -30,13 +30,6 @@
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
-        lButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        [lButton setImage:[UIImage imageNamed:@"map"] forState:UIControlStateNormal];
-        
-        rButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [rButton setImage:[UIImage imageNamed:@"globe"] forState:UIControlStateNormal];
-        
-        // Update the view.
         [self configureView];
     }
 }
@@ -110,6 +103,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    lButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [lButton setImage:[UIImage imageNamed:@"map"] forState:UIControlStateNormal];
+    
+    rButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [rButton setImage:[UIImage imageNamed:@"globe"] forState:UIControlStateNormal];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
