@@ -54,7 +54,9 @@
                 NSMutableArray *all = [NSMutableArray array];
                 
                 for (NSMutableDictionary *cat in categories) {
-                    for (NSDictionary *loc in cat[@"locations"]) {
+                    for (NSMutableDictionary *loc in cat[@"locations"]) {
+                        loc[@"category"] = cat[@"name"];
+                        
                         if (![allNames containsObject:loc[@"name"]]) {
                             [allNames addObject:loc[@"name"]];
                             [all addObject:loc];

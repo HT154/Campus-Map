@@ -25,7 +25,7 @@
 }
 
 - (NSDictionary *)dictionaryRepresentation {
-    return [self dictionaryWithValuesForKeys:@[@"abbr", @"icon", @"lat", @"link", @"lng", @"name"]];
+    return [self dictionaryWithValuesForKeys:@[@"abbr", @"icon", @"lat", @"link", @"lng", @"name", @"category"]];
 }
 
 - (void)takeValuesFrom:(NSDictionary *)dict {
@@ -35,6 +35,7 @@
     self.link = dict[@"link"];
     self.lng = @([dict[@"lng"] floatValue]);
     self.name = dict[@"name"];
+    self.category = dict[@"category"];
 }
 
 @end

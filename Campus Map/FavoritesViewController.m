@@ -226,7 +226,6 @@ static FavoritesViewController *sharedInstance = nil;
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     Location *newLoc = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    newLoc.category = cat;
     [newLoc takeValuesFrom:loc];
     
     // Save the context.
