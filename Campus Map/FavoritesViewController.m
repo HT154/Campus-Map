@@ -54,6 +54,11 @@ static FavoritesViewController *sharedInstance = nil;
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updatePlaceholderViewAnimated:animated];
+}
+
 - (void)updatePlaceholderViewAnimated:(BOOL)animated {
     NSTimeInterval duration = animated ? 0.25 : 0;
     
@@ -64,7 +69,7 @@ static FavoritesViewController *sharedInstance = nil;
         } completion:^(BOOL finished) {
             [self.placeholderView removeFromSuperview];
         }];
-    } else if (self.tableView.numberOfSections == 0 && !self.placeholderView.superview) {
+    } else if (self.tableView.numberOfSections == 0 && !self.placeholderView.superview && self.view.superview) {
         self.placeholderView.alpha = 0.0f;
         [self.view.superview addSubview:self.placeholderView];
         

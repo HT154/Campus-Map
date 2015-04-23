@@ -13,13 +13,9 @@
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     [super setHighlighted:highlighted animated:animated];
     
-    if (highlighted) {
-        self.textLabel2.textColor = [UIColor whiteColor];
-        self.detailTextLabel2.textColor = [UIColor whiteColor];
-    } else {
-        self.textLabel2.textColor = [UIColor blackColor];
-        self.detailTextLabel2.textColor = [UIColor blackColor];
-    }
+    self.textLabel2.highlighted = highlighted;
+    self.detailTextLabel2.highlighted = highlighted;
+    self.imageView2.highlighted = highlighted;
 }
 
 @end
