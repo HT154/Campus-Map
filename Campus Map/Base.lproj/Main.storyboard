@@ -137,13 +137,13 @@
                                                 <constraint firstAttribute="height" constant="20" id="7fn-Bm-35z"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehi-wv-LEf">
                                             <rect key="frame" x="43" y="25" width="524" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
@@ -274,13 +274,13 @@
                                                 <constraint firstAttribute="width" secondItem="5Qk-KA-Nzy" secondAttribute="height" id="Wvf-nP-e2z"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" horizontalCompressionResistancePriority="100" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6x-a7-ovA">
-                                            <rect key="frame" x="43" y="0.0" width="516" height="43"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" horizontalCompressionResistancePriority="100" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X6x-a7-ovA">
+                                            <rect key="frame" x="43" y="4" width="516" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="iz2-iq-iXD"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -290,10 +290,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="X6x-a7-ovA" secondAttribute="bottom" constant="-8" id="DnO-cD-pGV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="X6x-a7-ovA" secondAttribute="bottom" constant="-4" id="DnO-cD-pGV"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="5Qk-KA-Nzy" secondAttribute="bottom" id="N6r-m8-HhL"/>
                                         <constraint firstItem="X6x-a7-ovA" firstAttribute="leading" secondItem="5Qk-KA-Nzy" secondAttribute="trailing" constant="8" id="dES-rs-hwQ"/>
-                                        <constraint firstItem="X6x-a7-ovA" firstAttribute="top" secondItem="KeH-K1-XrZ" secondAttribute="topMargin" constant="-8" id="igb-NY-rdu"/>
+                                        <constraint firstItem="X6x-a7-ovA" firstAttribute="top" secondItem="KeH-K1-XrZ" secondAttribute="topMargin" constant="-4" id="igb-NY-rdu"/>
                                         <constraint firstItem="5Qk-KA-Nzy" firstAttribute="leading" secondItem="KeH-K1-XrZ" secondAttribute="leadingMargin" id="kMA-D4-4kh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="X6x-a7-ovA" secondAttribute="trailing" id="pB8-hw-A6h"/>
                                         <constraint firstItem="5Qk-KA-Nzy" firstAttribute="top" secondItem="KeH-K1-XrZ" secondAttribute="topMargin" id="uJo-e1-Df1"/>
@@ -349,12 +349,12 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-BN-upR">
-                                            <rect key="frame" x="43" y="0.0" width="516" height="43"/>
+                                            <rect key="frame" x="43" y="4" width="516" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="vUa-Ch-R5n"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -366,8 +366,8 @@
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="Vek-BN-upR" secondAttribute="trailing" id="5dH-sz-paL"/>
                                         <constraint firstItem="vCB-kh-K2P" firstAttribute="top" secondItem="uaT-kZ-mfn" secondAttribute="topMargin" id="I4E-54-XJy"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Vek-BN-upR" secondAttribute="bottom" constant="-8" id="NNK-Rt-Yda"/>
-                                        <constraint firstItem="Vek-BN-upR" firstAttribute="top" secondItem="uaT-kZ-mfn" secondAttribute="topMargin" constant="-8" id="Z4F-U6-65J"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vek-BN-upR" secondAttribute="bottom" constant="-4" id="NNK-Rt-Yda"/>
+                                        <constraint firstItem="Vek-BN-upR" firstAttribute="top" secondItem="uaT-kZ-mfn" secondAttribute="topMargin" constant="-4" id="Z4F-U6-65J"/>
                                         <constraint firstItem="vCB-kh-K2P" firstAttribute="top" secondItem="uaT-kZ-mfn" secondAttribute="topMargin" id="k4T-UZ-Lqn"/>
                                         <constraint firstItem="vCB-kh-K2P" firstAttribute="leading" secondItem="uaT-kZ-mfn" secondAttribute="leadingMargin" id="moI-0L-Uhf"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vCB-kh-K2P" secondAttribute="bottom" id="nsV-hR-Lpi"/>
@@ -396,8 +396,8 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="79z-pm-ztk">
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
