@@ -348,7 +348,7 @@
                                                 <constraint firstAttribute="width" secondItem="vCB-kh-K2P" secondAttribute="height" id="OK0-jK-nLi"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-BN-upR">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vek-BN-upR">
                                             <rect key="frame" x="43" y="4" width="516" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="vUa-Ch-R5n"/>
@@ -386,25 +386,38 @@
                                     <segue destination="2a5-R2-wv6" kind="show" identifier="" id="WjZ-ZI-QNg"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPlain" textLabel="79z-pm-ztk" style="IBUITableViewCellStyleDefault" id="yNP-4O-PtI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPlain" id="O5G-2B-ixX" customClass="FixedImageWidthTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNP-4O-PtI" id="byC-EQ-3qR">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="O5G-2B-ixX" id="qXN-CL-X9a">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="79z-pm-ztk">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lbi-1C-koV">
+                                            <rect key="frame" x="16" y="4" width="543" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="yKu-qa-QsS"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="yKu-qa-QsS"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Lbi-1C-koV" secondAttribute="bottom" constant="-4" id="43i-fI-vRo"/>
+                                        <constraint firstItem="Lbi-1C-koV" firstAttribute="top" secondItem="qXN-CL-X9a" secondAttribute="topMargin" constant="-4" id="5lk-ld-l5G"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Lbi-1C-koV" secondAttribute="trailing" id="i6E-sj-obZ"/>
+                                        <constraint firstItem="Lbi-1C-koV" firstAttribute="leading" secondItem="qXN-CL-X9a" secondAttribute="leadingMargin" constant="8" id="j8k-Nz-3rc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="2a5-R2-wv6" kind="show" identifier="" id="GsI-bB-wSf"/>
+                                    <outlet property="textLabel2" destination="Lbi-1C-koV" id="0qe-qe-61W"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -427,8 +440,7 @@
         <image name="favorite_stroke" width="33" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iIq-5n-YxT"/>
-        <segue reference="GsI-bB-wSf"/>
+        <segue reference="lzG-A9-ie7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1137254902" green="0.21176470589999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

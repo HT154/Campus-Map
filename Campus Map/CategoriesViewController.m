@@ -96,16 +96,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
+    FixedImageWidthTableViewCell *cell = nil;
     
     //use plain cell for 'all locations', use a representative image (the first child's icon) for others
     if (indexPath.row == categories.count - 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"CellPlain" forIndexPath:indexPath];
-        cell.textLabel.text = categories[indexPath.row][@"name"];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        [self configureCell:(FixedImageWidthTableViewCell *)cell atIndexPath:indexPath];
     }
+    
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
